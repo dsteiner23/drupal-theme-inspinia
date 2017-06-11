@@ -2,6 +2,7 @@ inspinia:
     css:
       theme:
         css/bootstrap.min.css: {}
+        css/style.css: {}
         css/plugins/toastr/toastr.min.css: {}
         css/animate.css: {}
         css/bootstrap.min.css: {}
