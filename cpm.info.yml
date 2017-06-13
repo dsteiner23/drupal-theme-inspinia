@@ -6,3 +6,8 @@ base theme: false
 
 libraries:
   - cpm/inspinia
+
+
+regions:
+  header: Header
+  primary_menu: "Primary Menu"
