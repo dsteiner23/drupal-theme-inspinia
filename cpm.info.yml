@@ -6,3 +6,11 @@ base theme: false
 
 libraries:
   - cpm/inspinia
+
+regions:
+  welcome: Welcome
+  header: Header
+  primary_menu: 'Primary menu'
+  page_top: 'Page top'
+  page_bottom: 'Page bottom'
+  content: Content
