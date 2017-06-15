@@ -11,3 +11,4 @@ libraries:
 regions:
   header: Header
   primary_menu: "Primary Menu"
+  content: Content

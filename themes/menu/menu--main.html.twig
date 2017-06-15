@@ -1,16 +1,69 @@
-Dashboard
-{% set heading_id = attributes.id ~ '-menu'|clean_id %}
-<nav role="navigation" aria-labelledby="{{ heading_id }}"{{ attributes|without('role', 'aria-labelledby') }}>
-    {# Label. If not displayed, we still provide it for screen readers. #}
-    {% if not configuration.label_display %}
-        {% set title_attributes = title_attributes.addClass('visually-hidden') %}
-    {% endif %}
-    {{ title_prefix }}
-    <h2{{ title_attributes.setAttribute('id', heading_id) }}>{{ configuration.label }}</h2>
-    {{ title_suffix }}
+{#
+/**
+ * @file
+ * Default theme implementation to display a menu.
+ *
+ * Available variables:
+ * - menu_name: The machine name of the menu.
+ * - items: A nested list of menu items. Each menu item contains:
+ *   - attributes: HTML attributes for the menu item.
+ *   - below: The menu item child items.
+ *   - title: The menu link title.
+ *   - url: The menu link url, instance of \Drupal\Core\Url
+ *   - localized_options: Menu link localized options.
+ *   - is_expanded: TRUE if the link has visible children within the current
+ *     menu tree.
+ *   - is_collapsed: TRUE if the link has children within the current menu tree
+ *     that are not currently visible.
+ *   - in_active_trail: TRUE if the link is in the active trail.
+ *
+ * @ingroup themeable
+ */
+#}
+{% import _self as menus %}
 
-    {# Menu. #}
-    {% block content %}
-        {{ content }}
-    {% endblock %}
-</nav>
+{#
+  We call a macro which calls itself to render the full tree.
+  @see http://twig.sensiolabs.org/doc/tags/macro.html
+#}
+{{ menus.menu_links(items, attributes, 0) }}
+
+{% macro menu_links(items, attributes, menu_level) %}
+  {% import _self as menus %}
+  {% if items %}
+    {% if menu_level == 0 %}
+<ul{{ attributes }}>
+    {% else %}
+    <ul class="nav metismenu" id="side-menu">
+        {% endif %}
+        <li class="nav-header">
+            <div class="dropdown profile-element"> <span>
+                            <img alt="image" class="img-circle" src="themes/cpm/img/profile_small.jpg">
+                             </span>
+                <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                            <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold">David Williams</strong>
+                             </span> <span class="text-muted text-xs block">Art Director <b class="caret"></b></span> </span> </a>
+                <ul class="dropdown-menu animated fadeInRight m-t-xs">
+                    <li><a href="profile.html">Profile</a></li>
+                    <li><a href="contacts.html">Contacts</a></li>
+                    <li><a href="mailbox.html">Mailbox</a></li>
+                    <li class="divider"></li>
+                    <li><a href="login.html">Logout</a></li>
+                </ul>
+            </div>
+            <div class="logo-element">
+                IN+
+            </div>
+        </li>
+        {% for item in items %}
+            <li{{ item.attributes }}>
+                <i class="fa fa-th-large"></i>
+                {{ link(item.title, item.url) }}
+                {% if item.below %}
+                    {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    {% endmacro %}
