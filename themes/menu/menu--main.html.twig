@@ -32,23 +32,21 @@
   {% import _self as menus %}
   {% if items %}
     {% if menu_level == 0 %}
-<ul{{ attributes }}>
+<ul{{ attributes.addClass('nav', 'metismenu') }} id="side-menu">
     {% else %}
     <ul class="nav metismenu" id="side-menu">
         {% endif %}
         <li class="nav-header">
             <div class="dropdown profile-element"> <span>
-                            <img alt="image" class="img-circle" src="themes/cpm/img/profile_small.jpg">
+                            <img alt="image" class="img-circle" src="{{ directory }}/img/profile_small.jpg">
                              </span>
                 <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                            <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold">David Williams</strong>
+                            <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold">{{ username }}</strong>
                              </span> <span class="text-muted text-xs block">Art Director <b class="caret"></b></span> </span> </a>
                 <ul class="dropdown-menu animated fadeInRight m-t-xs">
                     <li><a href="profile.html">Profile</a></li>
-                    <li><a href="contacts.html">Contacts</a></li>
-                    <li><a href="mailbox.html">Mailbox</a></li>
                     <li class="divider"></li>
-                    <li><a href="login.html">Logout</a></li>
+                    <li><a href="{{ url('user.logout.http') }}">Logout</a></li>
                 </ul>
             </div>
             <div class="logo-element">
@@ -57,8 +55,12 @@
         </li>
         {% for item in items %}
             <li{{ item.attributes }}>
-                <i class="fa fa-th-large"></i>
-                {{ link(item.title, item.url) }}
+                <a href="{{ item.url }}"><i class="fa fa-th-large"></i>
+                    <span class="nav-label">{{ item.title }}</span>
+                    {% if item.below %}
+                        <span class="fa arrow"></span>
+                    {% endif %}
+                </a>
                 {% if item.below %}
                     {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
                 {% endif %}
