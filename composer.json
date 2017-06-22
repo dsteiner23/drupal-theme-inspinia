@@ -1,0 +1,11 @@
+{
+    "name": "dsteiner23/drupal-theme-inspinia",
+    "type": "library",
+    "authors": [
+        {
+            "name": "dsteiner23",
+            "email": "daniel.steiner@gmx.de"
+        }
+    ],
+    "require": {}
+}
