@@ -1,6 +1,6 @@
 {
     "name": "dsteiner23/drupal-theme-inspinia",
-    "type": "library",
+    "type": "drupal-theme",
     "authors": [
         {
             "name": "dsteiner23",
