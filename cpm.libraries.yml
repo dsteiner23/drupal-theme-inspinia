@@ -1,34 +1,24 @@
 inspinia:
     css:
       theme:
-        css/bootstrap.min.css: {}
-        css/style.css: {}
-        css/plugins/toastr/toastr.min.css: {}
-        css/animate.css: {}
-        css/bootstrap.min.css: {}
-        js/plugins/gritter/jquery.gritter.css: {}
-        font-awesome/css/font-awesome.css: {}
+        vendor/css/bootstrap.min.css: {}
+        vendor/css/style.css: {}
+        vendor/css/plugins/toastr/toastr.min.css: {}
+        vendor/css/animate.css: {}
+        vendor/css/bootstrap.min.css: {}
+        vendor/js/plugins/gritter/jquery.gritter.css: {}
+        vendor/font-awesome/css/font-awesome.css: {}
     js:
-        js/jquery-3.1.1.min.js : {}
-        js/bootstrap.min.js: {}
-        js/plugins/metisMenu/jquery.metisMenu.js: {}
-        js/plugins/slimscroll/jquery.slimscroll.min.js: {}
+        vendor/js/jquery-3.1.1.min.js : {}
+        vendor/js/bootstrap.min.js: {}
+        vendor/js/plugins/metisMenu/jquery.metisMenu.js: {}
+        vendor/js/inspinia.js: {}
+        vendor/js/plugins/pace/pace.min.js: {}
 
-        js/plugins/flot/jquery.flot.js: {}
-        js/plugins/flot/jquery.flot.tooltip.min.js: {}
-        js/plugins/flot/jquery.flot.spline.js: {}
-        js/plugins/flot/jquery.flot.pie.js: {}
-        js/plugins/flot/jquery.flot.resize.js: {}
-
-        js/plugins/peity/jquery.peity.min.js: {}
-        js/demo/peity-demo.js: {}
-
-        js/inspinia.js: {}
-        js/plugins/pace/pace.min.js: {}
-        js/plugins/jquery-ui/jquery-ui.min.js: {}
-        js/plugins/gritter/jquery.gritter.min.js: {}
-
-        js/plugins/sparkline/jquery.sparkline.min.js: {}
-        js/demo/sparkline-demo.js: {}
-        js/plugins/chartJs/Chart.min.js: {}
-        js/plugins/toastr/toastr.min.js: {}
+dataTable:
+    css:
+      theme:
+        vendor/css/plugins/dataTables/datatables.min.css: {}
+    js:
+      vendor/js/plugins/dataTables/datatables.min.js: {}
+      js/table/freelancer-init.js: {}
