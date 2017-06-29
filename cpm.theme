@@ -31,6 +31,8 @@ function cpm_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state
             'class' => ['form-control']
         ];
 
+        $form['name']['#description'] = '';
+        $form['pass']['#description'] = '';
         $form['name']['#title_display'] = 'invisible';
         $form['pass']['#title_display'] = 'invisible';
 
