@@ -2,7 +2,7 @@ name: Screenbite CPM
 type: theme
 description: 'CPM Theme'
 core: 8.x
-base theme: bootstrap_forms
+base theme: false
 
 libraries:
   - cpm/inspinia

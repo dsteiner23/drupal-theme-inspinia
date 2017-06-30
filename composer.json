@@ -13,10 +13,7 @@
       "url": "https://packages.drupal.org/8"
     }
     ],
-    "require": {
-        "drupal/bootstrap_forms": "1.x-dev",
-        "drupal/bootstrap_forms_ui": "1.x-dev"
-    },
+    "require": {},
     "minimum-stability": "dev",
     "prefer-stable": true
     
